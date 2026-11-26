@@ -1,0 +1,34 @@
+# Day 2: Library Helpdesk Chatbot
+
+## Goal
+Learn how to control an LLM with a well-built system prompt, and add few-shot examples, JSON output and simple memory. The topic is a **college library helpdesk**.
+
+## What this notebook covers
+| Section | What it shows |
+|---|---|
+| System prompt | Role, Fact, Rule and Format in one prompt (opening hours, borrowing limits, late fine, copy prices) |
+| `ask()` function | A single question with the system prompt, without memory |
+| Few-shot prompting | A classifier that labels messages as `reservation`, `question` or `complaint` using example pairs |
+| JSON output | Extracts a book request as JSON and parses it with `json.loads` (with a `JSONDecodeError` fallback) |
+| Python basics | Dictionaries with `.get()`, type hints, docstrings, `try/except` |
+| Memory by hand | Keeps the last `MAX_TURNS = 6` turns of history, and a chat loop that stops on `bye`, `exit` or `quit` |
+
+## Key ideas
+- Without Facts the bot guesses, without Rules it makes promises, without Format the answers get long
+- Few-shot prompting gives reference examples. It does not train the model
+- Valid JSON uses double quotes and lowercase `true`/`false`
+- Longer history costs more tokens, so history is capped
+
+## Try these questions
+- What time does the library open on Saturday?
+- What is the late fine for 2 books 5 days late?
+- Can you reserve Python Crash Course for me tomorrow? (should say it will check with the librarian)
+- Hi, my name is Ravi. ... later: What is my name? (memory test)
+
+## How to run
+1. Get a free key at https://console.groq.com/keys
+2. In Colab, open **Secrets** (key icon), add `GROQ_API_KEY`, and turn on **Notebook access**.
+3. Run the cells in order. The last cell is an interactive chat. Type `bye` to stop.
+
+## Files
+- `Day02.ipynb`
