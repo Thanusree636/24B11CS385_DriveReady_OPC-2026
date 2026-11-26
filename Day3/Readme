@@ -1,0 +1,45 @@
+# Day 3: Library Helpdesk Assistant in LangChain
+
+## Goal
+Rebuild the helpdesk chatbot with LangChain building blocks (prompt template, memory, chain), test it with real questions, and get a first look at an agent. This day uses **Google Gemini** (a non-Groq provider).
+
+## What this notebook covers
+| Section | What it shows |
+|---|---|
+| Setup | `ChatGoogleGenerativeAI` with the Gemini API key from Colab Secrets (`SECRET_NAME`) |
+| Template + memory + chain | `ChatPromptTemplate` with a `MessagesPlaceholder("history")`, and the chain `prompt \| llm \| StrOutputParser()` |
+| `invoke_with_retry()` | Retries the call if Gemini is busy (503) or rate limited per minute (429) |
+| Tests | `tests.csv` with 10 questions and a `must_include` check for each, run by `run_tests()` to get a pass rate |
+| Improve | Change one thing in the prompt, re-run the tests, and compare the pass rate |
+| Switch | Temperature 1.0 run twice to see if results change between runs |
+| Agent sneak peek | `create_agent` with an empty tool list (tools come on Day 4) |
+| Agent or not | Three library jobs labelled plain code, one LLM call, or agent |
+| Before Day 4 | Two functions with type hints and docstrings: `late_fine()` and `is_available()` |
+
+## Key ideas
+- Chatbot vs agent: an answer-giver vs something that acts to reach a goal
+- A template has blanks in `{ }`, and a chain connects `prompt | llm | parser`
+- Tests are real questions plus a word the answer must include, and are re-run after every change
+- Use the simplest option that works (plain code, one LLM call, or an agent)
+
+## Results (fill in after running)
+| Run | What I changed | Tests passed |
+|---|---|---|
+| Baseline | Original prompt | __ / 10 |
+| After my one change | ... | __ / 10 |
+| Temperature 1.0, run 1 | ... | __ / 10 |
+| Temperature 1.0, run 2 | ... | __ / 10 |
+
+## How to run
+1. Get a free Gemini key at https://aistudio.google.com/apikey
+2. In Colab, open **Secrets** (key icon), add the key, and turn on **Notebook access**. Put the secret's exact name in `SECRET_NAME` in the setup cell.
+3. Make sure `tests.csv` is in the same folder as the notebook, or run the `%%writefile tests.csv` cell in the notebook.
+4. Run the cells in order.
+
+## Notes
+- The free Gemini tier has a small daily request limit. If you see `429 RESOURCE_EXHAUSTED`, wait for the quota to reset, use `max_tests` in `run_tests()`, or switch to another model.
+- Model names change over time. If you get a `404` or "model not found" error, use the model name shown in the error message.
+
+## Files
+- `Day03.ipynb`
+- `tests.csv`
