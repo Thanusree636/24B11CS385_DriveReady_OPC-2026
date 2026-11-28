@@ -1,0 +1,45 @@
+SHOPEASE ONLINE STORE — BUSINESS FACTS
+Purpose: Sample business-facts file for the ShopEase Day 5 RAG exercise.
+Important: This is a student demo business. Facts marked as sample/proposed are not real-world store policies.
+Last prepared: 28 November 2026
+
+A. CONFIRMED DEMO CATALOGUE FACTS
+1. The demo store is named ShopEase Online Store.
+2. ShopEase is presented as an online shopping store in this student project.
+3. The current demo catalogue contains wireless headphones, smart watch, laptop bag, bluetooth speaker, and keyboard.
+4. Wireless headphones cost Rs. 1,499 in the demo catalogue.
+5. A smart watch costs Rs. 2,499 in the demo catalogue.
+6. A laptop bag costs Rs. 899 in the demo catalogue.
+7. A bluetooth speaker costs Rs. 1,299 in the demo catalogue.
+8. A keyboard costs Rs. 699 in the demo catalogue.
+9. iPhone 17 is not included in the current demo catalogue.
+10. The price-checking tool is named get_product_price.
+11. The delivery-checking tool is named check_delivery.
+12. The order-saving tool is named log_order.
+
+B. CONFIRMED DEMO DELIVERY AND ORDER FACTS
+13. The demo delivery tool currently accepts Hyderabad.
+14. The demo delivery tool currently accepts Secunderabad.
+15. The demo delivery tool currently accepts Vijayawada.
+16. The demo delivery tool currently accepts Visakhapatnam.
+17. The demo delivery tool currently accepts Rajahmundry.
+18. The demo delivery tool currently accepts Kakinada.
+19. The supported payment methods in the order model are UPI, card, and cash on delivery.
+20. An order must have a customer name, catalogue product, quantity of at least 1, delivery date, city, and payment method.
+21. The agent is instructed to show an order summary and ask for customer confirmation before saving.
+22. The log_order tool validates order fields and calculates the total using the demo catalogue price.
+23. Successful demo orders are appended to the ShopEase Customer Orders Google Sheet.
+24. The Google Sheet columns are customer_name, product_name, quantity, delivery_date, city, payment_method, and total_price.
+
+C. POLICIES NOT YET CONFIGURED — DO NOT GUESS
+25. Delivery fees have not been configured in the current project.
+26. Exact delivery time estimates have not been configured in the current project.
+27. Return, replacement, cancellation, and refund rules have not been configured.
+28. Warranty information has not been configured for any product.
+29. Customer-support phone number, email address, and operating hours have not been configured.
+30. Product stock quantities and live inventory updates have not been implemented.
+
+RAG ANSWERING GUIDANCE
+If a customer asks about a fact listed above, answer from this file.
+If a customer asks about a policy marked not configured, say that the information is not currently available in the demo store and do not invent an answer.
+Do not claim that a real payment, shipment, refund, email, or external transaction has occurred. The current project demonstrates order logging to Google Sheets only.
