@@ -1,0 +1,121 @@
+# Day 4 – ShopEase Online Store Agent
+
+## Project Overview
+
+ShopEase is an AI-powered online shopping assistant developed as part of the AI Agents Workshop – Day 4.
+
+The agent helps customers check product prices, verify delivery availability, and place shopping orders through a conversational interface. It uses tools to perform specific tasks and structured output to collect order details accurately.
+
+## Technologies Used
+
+- Python
+- LangChain
+- LangChain-Groq
+- Groq LLM
+- Pydantic
+- Google Colab
+- Google Sheets
+- gspread
+
+## Features
+
+### 1. Product Price Checking
+- Checks the price of products available in the ShopEase catalogue.
+- Provides a helpful response when a product is unavailable.
+
+### 2. Delivery Availability
+- Checks whether delivery is available in supported cities.
+- Supported cities:
+  - Hyderabad
+  - Secunderabad
+  - Vijayawada
+  - Visakhapatnam
+  - Rajahmundry
+  - Kakinada
+
+### 3. Structured Order Collection
+Uses a Pydantic model named `ShoppingOrder` to validate:
+- Customer name
+- Product name
+- Quantity
+- Delivery date
+- City
+- Payment method
+
+### 4. Google Sheets Integration
+- Saves confirmed customer orders to Google Sheets.
+- Calculates the total order price.
+- Stores order information in a structured format.
+
+### 5. AI Agent with Tools
+The ShopEase agent uses three tools:
+- `get_product_price`
+- `check_delivery`
+- `log_order`
+
+The agent collects missing details and asks for customer confirmation before saving an order.
+
+## Product Catalogue
+
+| Product | Price |
+|---|---:|
+| Wireless Headphones | ₹1,499 |
+| Smart Watch | ₹2,499 |
+| Laptop Bag | ₹899 |
+| Bluetooth Speaker | ₹1,299 |
+| Keyboard | ₹699 |
+
+## Day 4 Tasks Completed
+
+- Converted two business functions into LangChain tools using `@tool`.
+- Created a Pydantic model for structured order information.
+- Tested structured output using five messy customer messages.
+- Created a Google Sheet and integrated it with the agent using a `log_order` tool.
+- Renamed a tool to `tool1` with the docstring `"does stuff"` and tested whether the agent selected it.
+- Restored the original tool name.
+- Inspected the agent trace using `pretty_print()`.
+
+### Trace Results
+
+For the product price and delivery availability query:
+
+- AI model calls: 3
+- Tool calls: 2
+
+## Sample Test Scenarios
+
+1. Checking the price of a smart watch.
+2. Checking delivery availability in Hyderabad.
+3. Submitting an incomplete order.
+4. Testing an invalid quantity of zero.
+5. Checking an unavailable product.
+6. Confirming an order before saving it to Google Sheets.
+
+## Project Files
+
+- `Day4_Online_Shopping_Store_Agent.ipynb` – Main Colab notebook containing the implementation.
+- `business_facts.txt` – ShopEase business information, policies, and FAQs for the next RAG tutorial.
+- `tests.csv` – Test scenarios and expected agent behaviour.
+- `README.md` – Project documentation.
+
+## How to Run
+
+1. Open the notebook in Google Colab.
+2. Install the required Python packages.
+3. Add your `GROQ_API_KEY` to Colab Secrets.
+4. Authenticate your Google account when prompted.
+5. Run the notebook cells in order.
+6. Interact with the ShopEase AI shopping assistant.
+
+## Security
+
+- API keys and credentials must be stored securely.
+- Do not upload API keys, passwords, or private credentials to GitHub.
+- Keep the Google Sheet's sharing permissions restricted.
+
+## Learning Outcome
+
+This project demonstrates how AI agents can use tools, validate structured data, handle customer requests, and connect with external services such as Google Sheets to automate real-world business workflows.
+
+**Workshop:** AI Agents Workshop – Day 4  
+**Customized Business:** ShopEase Online Store
